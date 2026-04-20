@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 03 - Client Insights</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="luxury-theme">
+
+  <div class="app-container">
+    <header class="top-header d-flex justify-content-between align-items-center py-4 px-3 px-md-4">
+      <h1 class="logo-title m-0">Client Insights</h1>
+      <button class="btn btn-outline-gold rounded-pill px-4" type="button">Export Report</button>
+    </header>
+
+    <main class="main-content px-3 px-md-4 pb-5 row g-4">
+
+      <aside class="col-12 col-lg-3">
+        <div class="place-card p-4 h-100">
+          <h2 class="section-title fs-5 mb-4 text-gold font-heading">Refine Criteria</h2>
+          <form class="d-flex flex-column gap-3 font-body">
+            <div>
+              <label for="range" class="form-label text-muted small text-uppercase fw-bold">Timeframe</label>
+              <select id="range" class="form-select luxury-input">
+                <option>Last 7 days</option>
+                <option>Last 30 days</option>
+                <option>Last 90 days</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="channel" class="form-label text-muted small text-uppercase fw-bold">Acquisition</label>
+              <select id="channel" class="form-select luxury-input">
+                <option>All channels</option>
+                <option>Organic Search</option>
+                <option>Private Network</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <div class="col-12 col-lg-9">
+
+        <section class="mb-4">
+          <h2 class="section-title fs-5 mb-3 font-heading text-dark">Performance Overview</h2>
+          <div class="row g-3">
+            <article class="col-12 col-md-4">
+              <div class="place-card p-4 text-center h-100">
+                <h3 class="card-desc text-uppercase small fw-bold mb-2 font-body">Unique Guests</h3>
+                <p class="fs-2 fw-bold mb-0 text-gold font-heading">42,100</p>
+              </div>
+            </article>
+            <article class="col-12 col-md-4">
+              <div class="place-card p-4 text-center h-100">
+                <h3 class="card-desc text-uppercase small fw-bold mb-2 font-body">Acquisition Rate</h3>
+                <p class="fs-2 fw-bold mb-0 text-gold font-heading">3.8%</p>
+              </div>
+            </article>
+            <article class="col-12 col-md-4">
+              <div class="place-card p-4 text-center h-100">
+                <h3 class="card-desc text-uppercase small fw-bold mb-2 font-body">Bounce Rate</h3>
+                <p class="fs-2 fw-bold mb-0 text-dark font-heading">28%</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="place-card p-4">
+          <h2 class="section-title fs-5 mb-4 font-heading text-dark">Top Destinations</h2>
+          <div class="table-responsive font-body">
+            <table class="table custom-luxury-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-muted small">Collection / Page</th>
+                  <th class="text-uppercase text-muted small text-end">Views</th>
+                  <th class="text-uppercase text-muted small text-end">Conversion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold font-heading">Boutique Home</td>
+                  <td class="text-end">18,400</td>
+                  <td class="text-end fw-bold text-gold">4.2%</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold font-heading">Private Concierge</td>
+                  <td class="text-end">8,120</td>
+                  <td class="text-end fw-bold text-gold">6.1%</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold font-heading">The Journal</td>
+                  <td class="text-end">5,900</td>
+                  <td class="text-end fw-bold text-gold">1.9%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
