@@ -6,34 +6,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exercise 04 - Secure Checkout</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* TỔNG THỂ */
+    :root {
+      --gold-color: #d4af37;
+      --dark-gold: #aa8410;
+      --luxury-bg: #fafafa;
+    }
+
+    body {
+      background-color: var(--luxury-bg);
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      /* FIX LỖI 1: Tạo khoảng trống ở cuối trang để nội dung không bị Bottom Bar đè lên */
+      padding-bottom: 120px; 
+      margin: 0;
+    }
+
+    .app-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* TYPOGRAPHY */
+    .font-heading { font-weight: 700; letter-spacing: -0.5px; }
+    .text-gold { color: var(--gold-color); }
+
+    /* CARD STYLING */
+    .place-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #eee !important;
+      transition: all 0.3s ease;
+    }
+
+    .course-thumb {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #f0f0f0;
+    }
+
+    /* INPUT & RADIOS */
+    .luxury-input {
+      cursor: pointer;
+      transition: border 0.2s;
+    }
+    .luxury-input:has(input:checked) {
+      border-color: var(--gold-color) !important;
+      background-color: #fffdf5;
+    }
+    .custom-switch:checked {
+      background-color: var(--gold-color);
+      border-color: var(--gold-color);
+    }
+
+    /* BUTTONS */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-color), var(--dark-gold));
+      color: white;
+      border: none;
+    }
+    .btn-gold:hover {
+      background: var(--dark-gold);
+      color: white;
+    }
+    .btn-outline-gold {
+      border-color: var(--gold-color);
+      color: var(--gold-color);
+    }
+
+    /* FIX LỖI 2: Cấu hình Bottom Bar chuẩn */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%; /* Đưa ra giữa */
+      transform: translateX(-50%); /* Căn giữa hoàn hảo */
+      width: 100%;
+      max-width: 600px; /* Khớp với app-container */
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px); /* Hiệu ứng kính mờ sang trọng */
+      z-index: 1000;
+      border-top: 1px solid #eee;
+    }
+
+    .card-desc { color: #888; font-size: 0.85rem; }
+  </style>
 </head>
 
 <body class="luxury-theme">
 
-  <div class="app-container">
-    <header class="top-header d-flex justify-content-between align-items-center py-4 px-3 px-md-4">
-      <h1 class="logo-title m-0 font-heading">Secure Checkout</h1>
-      <a href="#" class="nav-link text-uppercase text-muted small fw-bold tracking-wide">Back</a>
+  <div class="app-container shadow-sm">
+    <header class="top-header d-flex justify-content-between align-items-center py-4 px-4">
+      <h1 class="logo-title m-0 fs-4 font-heading">Secure Checkout</h1>
+      <a href="#" class="nav-link text-uppercase text-muted small fw-bold">Back</a>
     </header>
 
-    <main class="main-content px-3 px-md-4 pb-5 mb-5 font-body">
+    <main class="main-content px-4 pb-4">
 
-      <section class="place-card p-4 mb-4 border-0 shadow-sm">
+      <section class="place-card p-4 mb-4 shadow-sm">
         <div class="d-flex justify-content-between align-items-start">
           <div>
-            <h2 class="card-desc text-uppercase small fw-bold mb-2">Shipping Destination</h2>
+            <h2 class="card-desc text-uppercase fw-bold mb-2">Shipping Destination</h2>
             <p class="fs-6 fw-bold mb-1 text-dark">The Grand Penthouse</p>
             <p class="card-desc mb-0">123 Vinhomes Marina, HongBang, HaiPhong</p>
           </div>
-          <button class="btn btn-outline-gold btn-sm rounded-pill text-uppercase" type="button">Change</button>
+          <button class="btn btn-outline-gold btn-sm rounded-pill text-uppercase px-3" type="button">Change</button>
         </div>
       </section>
 
       <section class="mb-4">
         <h2 class="section-title mb-3 fs-5 font-heading text-dark">Your Selection</h2>
 
-        <article class="place-card p-3 mb-3 d-flex justify-content-between align-items-center border-0 shadow-sm">
+        <article class="place-card p-3 mb-3 d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3">
             <img src="../assets/images/04/01.png" alt="Onyx Earbuds" class="course-thumb">
             <div>
@@ -44,7 +132,7 @@
           <span class="fw-bold fs-5 text-gold">$299</span>
         </article>
 
-        <article class="place-card p-3 d-flex justify-content-between align-items-center border-0 shadow-sm">
+        <article class="place-card p-3 d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3">
             <img src="../assets/images/04/02.png" alt="Leather Dock" class="course-thumb">
             <div>
@@ -56,7 +144,7 @@
         </article>
       </section>
 
-      <section class="place-card p-4 mb-4 border-0 shadow-sm">
+      <section class="place-card p-4 mb-4">
         <h2 class="card-desc text-uppercase small fw-bold mb-3">Payment Method</h2>
         <form class="d-flex flex-column gap-3">
           <label class="form-check p-3 border rounded-3 luxury-input d-flex align-items-center m-0">
@@ -77,18 +165,16 @@
       </section>
     </main>
 
-    <footer
-      class="bottom-nav d-flex justify-content-between align-items-center px-4 py-3 bg-white border-top shadow-sm font-body"
-      style="position: fixed; bottom: 0; width: 100%; z-index: 1000;">
+    <footer class="bottom-nav d-flex justify-content-between align-items-center px-4 py-3">
       <div>
-        <p class="mb-0 card-desc text-uppercase small fw-bold">Total Amount</p>
+        <p class="mb-0 card-desc text-uppercase fw-bold">Total Amount</p>
         <p class="mb-0 fw-bold fs-3 font-heading text-dark">$599</p>
       </div>
-      <button class="btn btn-gold px-4 py-3 rounded-pill text-uppercase tracking-wide fw-bold" type="button">Confirm
-        Purchase</button>
+      <button class="btn btn-gold px-4 py-2 rounded-pill text-uppercase fw-bold shadow-sm" type="button">
+        Confirm Purchase
+      </button>
     </footer>
   </div>
 
 </body>
-
 </html>
